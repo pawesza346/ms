@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+struct napis
+{	char* nap;
+	napis*LEWO;
+	napis*PRAWO;};
+
+void dodaj(napis*&k, string imie)
+{
+	if (!k)
+		k = new napis{ imie,nullptr,nullptr };
+	else
+	{
+		if (imie[0] < k->nap[0])
+			dodaj(k->LEWO, imie);
+		else
+			dodaj(k->PPRAWO, imie);
+	}
+void wypisz(napis*k)
+{if(k)
+{
+	wypisz(k->LEWO);
+	cout << k->nap << endl;
+	wypisz(k->PRAWO)
+	}
+int main()
+{napis*k = NULL;
+	dodaj(k, "ola");
+	dodaj(k, "ania");
+	dodaj(k, "zuza");
+	wypisz(k);
+
+}
