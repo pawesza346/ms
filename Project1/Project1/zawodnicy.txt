@@ -1,0 +1,7 @@
+a 10 szary polska 1
+a 10 rudy polska 2
+a 10 kolorowy polska 3
+a 10 nwm polska 4
+b 20 rozowy polska 1
+b 20 bialy polska 2
+b 20 czarmy polska 2
