@@ -1,9 +1,10 @@
 #include"funkcje.h"
 
-void wyswietl1(skoczek *g) {
+void wyswietl1(skoczek* g) {
 	skoczek * temp = g;
-	while (temp != nullptr)
+	while (temp != NULL)
 	{
+		cout << "f" << endl;
 		cout << temp->nazwisko << " " << temp->kraj << " " << temp->pozycja << endl;
 		temp = temp->nast;
 	}
@@ -11,7 +12,7 @@ void wyswietl1(skoczek *g) {
 
 void wyswietl2(konkurs* glowa) {
 	konkurs*next = glowa;
-	while (next != nullptr)
+	while (next != NULL)
 	{
 		cout << next->data << " " << next->miejsce << endl;
 		wyswietl1(next->kol);
@@ -26,16 +27,17 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 	ifstream dane;
 	dane.open(nazwa.c_str(), ios::in);
 	dane >> miejsce1 >> czas1 >> nazwisko1 >> kraj1 >> pozycja1;
-	konkurs* nowy = glowa;
+	konkurs* nowyy = new konkurs;
+	nowyy = glowa;
 	skoczek* g = new skoczek;
-	skoczek* gg = g;
+	skoczek* gg = new skoczek;
+	gg=g;
 	while (!dane.eof())
 	{
-		
 		dane >> miejsce2 >> czas2 >> nazwisko2 >> kraj2 >> pozycja2;
 		if (miejsce1 == miejsce2 and czas1 == czas2)
 		{
-			cout << "a";
+			cout << "tak ";
 			gg->nazwisko = nazwisko1;
 			gg->kraj = kraj1;
 			ss << pozycja1;
@@ -47,51 +49,58 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 			nazwisko1 = nazwisko2;
 			kraj1 = kraj2;
 			pozycja1 = pozycja2;
+			miejsce1 = miejsce2;
+			czas1 = czas2;
 		}
 		else
 		{
-			
+			cout << "nie ";
 			gg->nazwisko = nazwisko1;
 			gg->kraj = kraj1;
 			ss << pozycja1;
 			ss >> gg->pozycja;
 			ss.clear();
-			nowy->miejsce = miejsce1;cout << "b";
-			nowy->data = czas1;
-			nowy->kol = g;
-			konkurs* najnowszy = new konkurs;
-			nowy->kolejny = najnowszy;
-			nowy=najnowszy;
+			nowyy->miejsce = miejsce1;
+			nowyy->data = czas1;
+			nowyy->kol = g; 
+			konkurs* najnowszy = new konkurs;cout << endl;
+			nowyy->kolejny = najnowszy;
+			nowyy=najnowszy;
 			skoczek* g = new skoczek;
-			skoczek* gg = g;
+			gg = g;
 			nazwisko1 = nazwisko2;
 			kraj1 = kraj2;
 			pozycja1 = pozycja2;
+			miejsce1 = miejsce2;
+			czas1 = czas2;
 		}
 	}
 	if (miejsce1 == miejsce2 and czas1 == czas2)
 	{
+		cout << "tak1 ";
 		gg->nazwisko = nazwisko1;
 		gg->kraj = kraj1;
 		ss << pozycja1;
 		ss >> gg->pozycja;
 		ss.clear();
-		nowy->miejsce = miejsce1;
-		nowy->data = czas1;
-		nowy->kol = g;
+		nowyy->miejsce = miejsce1;
+		nowyy->data = czas1;
+		nowyy->kol = g;
 	}
 	else
 	{
-		nowy->miejsce = miejsce1;
-		nowy->data = czas1;
-		nowy->kol = g;
+		cout << "nie1 ";
+		nowyy->miejsce = miejsce1;
+		nowyy->data = czas1;
+		nowyy->kol = g;
+		gg = nullptr;
 		konkurs* najnowszy = new konkurs;
-		nowy->kolejny = najnowszy;
-		nowy=najnowszy;
-		nowy->miejsce = miejsce2;
-		nowy->data = czas2;
+		nowyy->kolejny = najnowszy;
+		nowyy=najnowszy;
+		nowyy->miejsce = miejsce2;
+		nowyy->data = czas2;
 		skoczek* g = new skoczek;
-		nowy->kol = g;
+		nowyy->kol = g;
 		g->nazwisko = nazwisko1;
 		g->kraj = kraj1;
 		ss << pozycja1;
@@ -102,7 +111,7 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 
 int main() {
 	string nazwa = "zawodnicy.txt";
-	konkurs*glowa = nullptr;
+	konkurs*glowa = new konkurs;
 	dodaj_konkurs(glowa, nazwa);
 	wyswietl2(glowa);
 	cin.get();
