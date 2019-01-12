@@ -4,7 +4,6 @@ void wyswietl1(skoczek* g) {
 	skoczek * temp = g;
 	while (temp != NULL)
 	{
-		cout << "f" << endl;
 		cout << temp->nazwisko << " " << temp->kraj << " " << temp->pozycja << endl;
 		temp = temp->nast;
 	}
@@ -37,13 +36,13 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 		dane >> miejsce2 >> czas2 >> nazwisko2 >> kraj2 >> pozycja2;
 		if (miejsce1 == miejsce2 and czas1 == czas2)
 		{
-			cout << "tak ";
 			gg->nazwisko = nazwisko1;
 			gg->kraj = kraj1;
 			ss << pozycja1;
 			ss >> gg->pozycja;
 			ss.clear();
 			skoczek* nowy = new skoczek;
+			nowy->nast = NULL;
 			gg->nast = nowy;
 			gg = nowy;
 			nazwisko1 = nazwisko2;
@@ -54,7 +53,6 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 		}
 		else
 		{
-			cout << "nie ";
 			gg->nazwisko = nazwisko1;
 			gg->kraj = kraj1;
 			ss << pozycja1;
@@ -63,7 +61,8 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 			nowyy->miejsce = miejsce1;
 			nowyy->data = czas1;
 			nowyy->kol = g; 
-			konkurs* najnowszy = new konkurs;cout << endl;
+			konkurs* najnowszy = new konkurs;
+			najnowszy->kolejny = NULL;
 			nowyy->kolejny = najnowszy;
 			nowyy=najnowszy;
 			skoczek* g = new skoczek;
@@ -77,7 +76,6 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 	}
 	if (miejsce1 == miejsce2 and czas1 == czas2)
 	{
-		cout << "tak1 ";
 		gg->nazwisko = nazwisko1;
 		gg->kraj = kraj1;
 		ss << pozycja1;
@@ -89,7 +87,6 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 	}
 	else
 	{
-		cout << "nie1 ";
 		nowyy->miejsce = miejsce1;
 		nowyy->data = czas1;
 		nowyy->kol = g;
