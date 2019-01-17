@@ -368,14 +368,32 @@ void wyswietl_zawodnika(konkurs *&glowa, string nazwisk)
 		cout << pomocniczy->miejsce << " " << pomocniczy->data << " lokata: " << pomocniczyy->pozycja << endl;
 		pomocniczy = pomocniczy->kolejny;
 	}
-}
-int main(string nazwa){
+}int main(int argc, char* argv[]) {
+	if (argc != 5) {
+		cout << "Zle uruchomiony program." << endl;
+		system("pause");
+		return 0;
+	}
+	string przelacznik = argv[2];
+	if (przelacznik == "-i" || przelacznik == "-o") {
+		cout << "nie poda³es wlasciwego prze³¹cznika." << endl;
+		system("pause");
+		return 0;
+	}
+	string plik, zapis;
+	for (int i = 1; i < argc; i++) {
+		string pob_wart = argv[i];
+		if (pob_wart == "-i")
+			plik = argv[i + 1];
+		if (pob_wart == "-o")
+			zapis = argv[i + 1];
+	}
 	string mie;
 	char w=0;
 	int wyborrr;
 	stringstream ss2;
 	konkurs*glowa = new konkurs;
-	dodaj_konkurs(glowa, nazwa); 
+	dodaj_konkurs(glowa, plik); 
 	while(w!=48)
 	{
 		cout << "\t" << "MENU" << endl << " Aby edytowac zawodnika wybierz : 1" << endl << " Aby wyswietlic obecny ranking pucharu wybierz : 2" << endl << " Aby wyswietlic wynik z wybranego konkursu wybierz : 3" << endl << " Aby wyswietlic wyniki danego skoczka wybierz : 4" << endl<<" Aby etytowac informacje o konkursie wybeirz : 5"<<endl<<" Aby zakonczyc wybierz : 0"<<endl;
