@@ -19,14 +19,3 @@ struct konkurs {
 	struct skoczek *kol;
 	konkurs *kolejny;
 };
-struct ranking_skoczkow {
-	string nazwisko;
-	string kraj;
-	int il_punktow;
-	ranking_skoczkow *naste;
-};
-struct ranking_krajow {
-	string kraj;
-	int il_punktow1;
-	ranking_krajow *nastep;
-};

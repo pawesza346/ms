@@ -369,8 +369,8 @@ void wyswietl_zawodnika(konkurs *&glowa, string nazwisk)
 		pomocniczy = pomocniczy->kolejny;
 	}
 }
-int main(){
-	string nazwa = "zawodnicy.txt",mie;
+int main(string nazwa){
+	string mie;
 	char w=0;
 	int wyborrr;
 	stringstream ss2;
