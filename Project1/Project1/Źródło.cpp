@@ -1,24 +1,5 @@
 #include"funkcje.h"
 
-void wyswietl1(skoczek* g) {
-	skoczek * temp = g;
-	while (temp != NULL)
-	{
-		cout << temp->nazwisko << " " << temp->kraj << " " << temp->pozycja << endl;
-		temp = temp->nast;
-	}
-};
-
-void wyswietl2(konkurs* glowa) {
-	konkurs*next = glowa;
-	while (next != NULL)
-	{
-		cout << next->data << " " << next->miejsce << endl;
-		wyswietl1(next->kol);
-		next = next->kolejny;
-	}
-};
-
 void dodaj_konkurs(konkurs*& glowa, string nazwa)
 {
 	stringstream ss;
@@ -106,6 +87,7 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 		ss >> g->pozycja;
 		ss.clear();
 	}
+	dane.close();
 };
 
 void edytuj_konkurs(konkurs *& glowa,string miejsce_szuk)
@@ -368,7 +350,20 @@ void wyswietl_zawodnika(konkurs *&glowa, string nazwisk)
 		cout << pomocniczy->miejsce << " " << pomocniczy->data << " lokata: " << pomocniczyy->pozycja << endl;
 		pomocniczy = pomocniczy->kolejny;
 	}
-}int main(int argc, char* argv[]) {
+}
+
+void zapisz_zmiany(konkurs*&glowa, string zapis)
+{
+	ofstream nowe;
+	nowe.open(zapis.c_str(), ios::out);
+	konkurs *pomocniczy = new konkurs;
+	skoczek *pomocniczyy = new skoczek;
+	for (pomocniczy = glowa; pomocniczy != NULL; pomocniczy = pomocniczy->kolejny)
+		for (pomocniczyy = pomocniczy->kol; pomocniczyy != NULL; pomocniczyy = pomocniczyy->nast)
+			nowe << pomocniczy->miejsce << " " << pomocniczy->data << " " << pomocniczyy->nazwisko << " " << pomocniczyy->kraj << " " << pomocniczyy->pozycja << endl;
+	nowe.close();
+}
+int main(int argc, char* argv[]) {
 	if (argc != 5) {
 		cout << "Zle uruchomiony program." << endl;
 		system("pause");
@@ -403,7 +398,7 @@ void wyswietl_zawodnika(konkurs *&glowa, string nazwisk)
 		ss2.clear();
 		switch(wyborrr)
 		{
-		case 0: {return 0; break; }
+		case 0: {zapisz_zmiany(glowa,zapis); return 0; break; }
 		case 1: {edytuj_zawodnika(glowa); break; }
 		case 2: {ranking(glowa); break; }
 		case 3: {cout << " Prosze podac miejsce konkursu " << endl;
