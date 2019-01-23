@@ -16,4 +16,8 @@ void wyswietl_zawodnika(konkurs *&glowa, string nazwisk);
 
 void zapisz_zmiany(konkurs*&glowa, string zapis);
 
+void usunskoczkow(skoczek * & pHead);
+
+void usunkonkursy(konkurs * & pHead);
+
 #endif

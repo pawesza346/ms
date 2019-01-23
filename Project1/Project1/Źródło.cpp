@@ -1,4 +1,5 @@
 #include"funkcje.h"
+#include<vld.h>
 
 void dodaj_konkurs(konkurs*& glowa, string nazwa)
 {
@@ -363,6 +364,27 @@ void zapisz_zmiany(konkurs*&glowa, string zapis)
 			nowe << pomocniczy->miejsce << " " << pomocniczy->data << " " << pomocniczyy->nazwisko << " " << pomocniczyy->kraj << " " << pomocniczyy->pozycja << endl;
 	nowe.close();
 }
+void usunskoczkow(skoczek * & pHead)
+{
+	while (pHead)
+	{
+		skoczek * pNastepnik = pHead->nast;
+		delete pHead;
+		pHead = pNastepnik;
+	}
+	pHead = NULL;
+}
+void usunkonkursy(konkurs * & pHead)
+{
+	while (pHead)
+	{
+		konkurs * pNastepnik = pHead->kolejny;
+		usunskoczkow(pHead->kol);
+		delete pHead;
+		pHead = pNastepnik;
+	}
+	pHead = NULL;
+}
 int main(int argc, char* argv[]) {
 	if (argc != 5) {
 		cout << "Zle uruchomiony program." << endl;
@@ -388,7 +410,7 @@ int main(int argc, char* argv[]) {
 	int wyborrr;
 	stringstream ss2;
 	konkurs*glowa = new konkurs;
-	dodaj_konkurs(glowa, plik); 
+	dodaj_konkurs(glowa, plik);
 	while(w!=48)
 	{
 		cout << "\t" << "MENU" << endl << " Aby edytowac zawodnika wybierz : 1" << endl << " Aby wyswietlic obecny ranking pucharu wybierz : 2" << endl << " Aby wyswietlic wynik z wybranego konkursu wybierz : 3" << endl << " Aby wyswietlic wyniki danego skoczka wybierz : 4" << endl<<" Aby etytowac informacje o konkursie wybeirz : 5"<<endl<<" Aby zakonczyc wybierz : 0"<<endl;
@@ -398,7 +420,7 @@ int main(int argc, char* argv[]) {
 		ss2.clear();
 		switch(wyborrr)
 		{
-		case 0: {zapisz_zmiany(glowa,zapis); return 0; break; }
+		case 0: {zapisz_zmiany(glowa, zapis); usunkonkursy(glowa); return 0; break; }
 		case 1: {edytuj_zawodnika(glowa); break; }
 		case 2: {ranking(glowa); break; }
 		case 3: {cout << " Prosze podac miejsce konkursu " << endl;
