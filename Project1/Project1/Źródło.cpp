@@ -202,79 +202,14 @@ void ranking(konkurs *& glowa) {
 			pozycjar = pomocniczyy->pozycja;
 			for (int i = 0;i < rank1.size();i++)
 				if (rank1[i] == krajr)
-					if(pozycjar<=30)
+					if(pozycjar<=max_zaw)
 					tab2[i] += tab_rank[pozycjar-1];
-					switch(pozycjar)
-					{
-					case 1: {tab2[i] = tab2[i] + 100; break; }
-					case 2: {tab2[i] = tab2[i] + 80; break; }
-					case 3: {tab2[i] = tab2[i] + 60; break; }
-					case 4: {tab2[i] = tab2[i] + 50; break; }
-					case 5: {tab2[i] = tab2[i] + 45; break; }
-					case 6: {tab2[i] = tab2[i] + 40; break; }
-					case 7: {tab2[i] = tab2[i] + 36; break; }
-					case 8: {tab2[i] = tab2[i] + 32; break; }
-					case 9: {tab2[i] = tab2[i] + 29; break; }
-					case 10: {tab2[i] = tab2[i] + 26; break; }
-					case 11: {tab2[i] = tab2[i] + 24; break; }
-					case 12: {tab2[i] = tab2[i] + 22; break; }
-					case 13: {tab2[i] = tab2[i] + 20; break; }
-					case 14: {tab2[i] = tab2[i] + 18; break; }
-					case 15: {tab2[i] = tab2[i] + 16; break; }
-					case 16: {tab2[i] = tab2[i] + 15; break; }
-					case 17: {tab2[i] = tab2[i] + 14; break; }
-					case 18: {tab2[i] = tab2[i] + 13; break; }
-					case 19: {tab2[i] = tab2[i] + 12; break; }
-					case 20: {tab2[i] = tab2[i] + 11; break; }
-					case 21: {tab2[i] = tab2[i] + 10; break; }
-					case 22: {tab2[i] = tab2[i] + 9; break; }
-					case 23: {tab2[i] = tab2[i] + 8; break; }
-					case 24: {tab2[i] = tab2[i] + 7; break; }
-					case 25: {tab2[i] = tab2[i] + 6; break; }
-					case 26: {tab2[i] = tab2[i] + 5; break; }
-					case 27: {tab2[i] = tab2[i] + 4; break; }
-					case 28: {tab2[i] = tab2[i] + 3; break; }
-					case 29: {tab2[i] = tab2[i] + 2; break; }
-					case 30: {tab2[i] = tab2[i] + 1; break; }
-					default: {tab2[i] = tab2[i]; break; }
-					}
+					
 			for (int i = 0; i < rank.size(); i++)
 				if (rank[i] == nazwiskor)
-					switch (pozycjar)
-					{
-					case 1: {tab[i] = tab[i] + 100;break; }
-					case 2: {tab[i] = tab[i] + 80;break; }
-					case 3: {tab[i] = tab[i] + 60;break; }
-					case 4: {tab[i] = tab[i] + 50;break; }
-					case 5: {tab[i] = tab[i] + 45;break; }
-					case 6: {tab[i] = tab[i] + 40;break; }
-					case 7: {tab[i] = tab[i] + 36;break; }
-					case 8: {tab[i] = tab[i] + 32;break; }
-					case 9: {tab[i] = tab[i] + 29;break; }
-					case 10: {tab[i] = tab[i] + 26;break; }
-					case 11: {tab[i] = tab[i] + 24;break; }
-					case 12: {tab[i] = tab[i] + 22;break; }
-					case 13: {tab[i] = tab[i] + 20;break; }
-					case 14: {tab[i] = tab[i] + 18;break; }
-					case 15: {tab[i] = tab[i] + 16;break; }
-					case 16: {tab[i] = tab[i] + 15;break; }
-					case 17: {tab[i] = tab[i] + 14;break; }
-					case 18: {tab[i] = tab[i] + 13;break; }
-					case 19: {tab[i] = tab[i] + 12;break; }
-					case 20: {tab[i] = tab[i] + 11;break; }
-					case 21: {tab[i] = tab[i] + 10;break; }
-					case 22: {tab[i] = tab[i] + 9;break; }
-					case 23: {tab[i] = tab[i] + 8;break; }
-					case 24: {tab[i] = tab[i] + 7;break; }
-					case 25: {tab[i] = tab[i] + 6;break; }
-					case 26: {tab[i] = tab[i] + 5;break; }
-					case 27: {tab[i] = tab[i] + 4;break; }
-					case 28: {tab[i] = tab[i] + 3;break; }
-					case 29: {tab[i] = tab[i] + 2;break; }
-					case 30: {tab[i] = tab[i] + 1;break; }
-					default: {tab[i] = tab[i];break; }
+					if (pozycjar <= max_zaw)
+						tab[i] += tab_rank[pozycjar-1];
 					}
-		}
 	int max = 0, poz_max = 0; 
 	for (int j = 0; j < rank.size(); j++)
 	{for (int i = 0; i < rank.size(); i++)
