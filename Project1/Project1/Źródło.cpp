@@ -1,5 +1,5 @@
 #include"funkcje.h"
-#include<vld.h>
+//#include<vld.h>
 
 void dodaj_konkurs(konkurs*& glowa, string nazwa)
 {
@@ -16,7 +16,7 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 	while (!dane.eof())
 	{
 		dane >> miejsce2 >> czas2 >> nazwisko2 >> kraj2 >> pozycja2;
-		if (miejsce1 == miejsce2 and czas1 == czas2)
+		if (miejsce1 == miejsce2 && czas1 == czas2)
 		{
 			gg->nazwisko = nazwisko1;
 			gg->kraj = kraj1;
@@ -58,7 +58,7 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 			czas1 = czas2;
 		}
 	}
-	if (miejsce1 == miejsce2 and czas1 == czas2)
+	if (miejsce1 == miejsce2 && czas1 == czas2)
 	{
 		gg->nazwisko = nazwisko1;
 		gg->kraj = kraj1;
@@ -200,8 +200,10 @@ void ranking(konkurs *& glowa) {
 			nazwiskor = pomocniczyy->nazwisko;
 			krajr = pomocniczyy->kraj;
 			pozycjar = pomocniczyy->pozycja;
-			for(int i=0;i<rank1.size();i++)
-				if(rank1[i]==krajr)
+			for (int i = 0;i < rank1.size();i++)
+				if (rank1[i] == krajr)
+					if(pozycjar<=30)
+					tab2[i] += tab_rank[pozycjar-1];
 					switch(pozycjar)
 					{
 					case 1: {tab2[i] = tab2[i] + 100; break; }
