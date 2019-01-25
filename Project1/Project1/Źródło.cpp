@@ -1,5 +1,5 @@
 #include"funkcje.h"
-//#include<vld.h>
+#include<vld.h>
 
 void dodaj_konkurs(konkurs*& glowa, string nazwa)
 {
@@ -107,12 +107,16 @@ void edytuj_konkurs(konkurs *& glowa,string miejsce_szuk)
 	ss1 << wybor;
 	ss1 >> wyb;
 	switch (wyb) {
-	case 1: {cout << endl << " podaj nowa nazwe " << endl;
+	case 1: {cout << "\n" << " podaj nowa nazwe " << endl;
 		cin >> nowe;
 		pomocniczy->miejsce = nowe;
 		cout << endl << " zmiana zostala wykonana " << endl; break; }
 	case 2: {cout << endl << " podaj nowa date " << endl;
 		cin >> nowe;
+		if (nowe.size() != 10)
+		{	cout << " podana data jest nieprawidlowa , format daty to : dd.mm.rrrr"; break; }
+		if(nowe[2]!= nowe[5])
+		{cout << " podana data jest nieprawidlowa , format daty to : dd.mm.rrrr"; break;}
 		pomocniczy->data = nowe;
 		cout << endl << " zmiana zostala wykonana " << endl; break; }
 	default:{cout << endl << " podales zla wartosc, za chwile powrocisz do menu " << endl; break;}
@@ -174,8 +178,8 @@ void ranking(konkurs *& glowa) {
 	vector<int>tab1;
 	vector<int>tab2; 
 	vector<int>tab3;
-	for (pomocniczy = glowa; pomocniczy != NULL; pomocniczy = pomocniczy->kolejny)
-		for (pomocniczyy = pomocniczy->kol; pomocniczyy != NULL; pomocniczyy = pomocniczyy->nast, il++)
+	for (pomocniczy = glowa; pomocniczy != nullptr; pomocniczy = pomocniczy->kolejny)
+		for (pomocniczyy = pomocniczy->kol; pomocniczyy != nullptr; pomocniczyy = pomocniczyy->nast, il++)
 		{
 			nazwiskor = pomocniczyy->nazwisko;
 			krajr = pomocniczyy->kraj;
@@ -184,8 +188,7 @@ void ranking(konkurs *& glowa) {
 			{czy_jest = true; break;}}
 			if (czy_jest == false)
 			{rank.push_back(nazwiskor);
-			tab.push_back(0);
-			}
+			tab.push_back(0);}
 			for (int j = 0; j < rank1.size(); j++)
 			{if(rank1[j]==krajr)
 			{czy_kraj = true; break;}}
@@ -260,33 +263,98 @@ void ranking(konkurs *& glowa) {
 
 void wyswietl_konkurs(konkurs *&glowa, string miejsce)
 {
+	vector<int>poz;
+	int max, poz_max;
 	konkurs* pomocniczy = new konkurs;
-		pomocniczy=glowa;
-		for (string n_miejsce = glowa->miejsce; n_miejsce != miejsce; n_miejsce = pomocniczy->miejsce)
-			pomocniczy = pomocniczy->kolejny;
-		cout << pomocniczy->miejsce << " " << pomocniczy->data << endl;
-		skoczek * temp = new skoczek;
-			temp=pomocniczy->kol;
-		while (temp != NULL)
-		{
-			cout << temp->nazwisko << " " << temp->kraj << " " << temp->pozycja << endl;
-			temp = temp->nast;
+	pomocniczy=glowa;
+	for (string n_miejsce = glowa->miejsce; n_miejsce != miejsce; n_miejsce = pomocniczy->miejsce)
+		pomocniczy = pomocniczy->kolejny;
+	cout << pomocniczy->miejsce << " " << pomocniczy->data << endl;
+	skoczek * temp = new skoczek;
+	for(temp=pomocniczy->kol;temp!=NULL;temp=temp->nast)
+		poz.push_back(temp->pozycja);
+	while (poz.size() != 0)
+	{max = poz[0], poz_max = 0;
+	for (int i = 1; i < poz.size(); i++)
+		{if (poz[i] > max)
+			{max = poz[i];
+			poz_max = i;}
 		}
+	for (temp = pomocniczy->kol; temp->pozycja != max;)
+		temp = temp->nast;
+	cout << temp->nazwisko << " " << temp->kraj << " " << temp->pozycja << endl;
+	poz.erase(poz.begin() + poz_max);}
+		
 }
 
 void wyswietl_zawodnika(konkurs *&glowa, string nazwisk)
 {
+	skoczek *pomocniczyy = new skoczek;
 	konkurs *pomocniczy = new konkurs;
 	pomocniczy = glowa;
+	vector<string>dane1;
 	cout << nazwisk << endl;
+	string max,porownanie,nazwiskoo;
+	int poz_max;
 	while(pomocniczy!=NULL)
-	{
-		skoczek *pomocniczyy = new skoczek;
+	{pomocniczyy = pomocniczy->kol;
+	for (nazwiskoo = pomocniczyy->nazwisko; nazwiskoo != nazwisk; nazwiskoo = pomocniczyy->nazwisko)
+	pomocniczyy = pomocniczyy->nast; 
+	if(nazwiskoo==nazwisk)
+		dane1.push_back(pomocniczy->data);
+	pomocniczy = pomocniczy->kolejny;}
+	while (dane1.size() != 0)
+	{max = dane1[0];
+	poz_max = 0;
+	for (int i = 1; i < dane1.size(); i++)
+	{porownanie = dane1[i];
+	if (porownanie[6] < max[6])
+	{max = porownanie;
+	poz_max = i;}
+	else
+		{if (porownanie[7] < max[7])
+		{max = porownanie;
+		poz_max = i;}
+		else
+			{if (porownanie[8] < max[8])
+			{max = porownanie;
+			poz_max = i;}
+			else
+				{if (porownanie[9] < max[9])
+				{max = porownanie;
+				poz_max = i;}
+				else
+					{if (porownanie[3] < max[3])
+					{max = porownanie;
+					poz_max = i;}
+					else
+						{if (porownanie[4] < max[4])
+						{max = porownanie;
+						poz_max = i;}
+						else
+							{if (porownanie[0] < max[0])
+							{max = porownanie;
+							poz_max = i;}
+							else
+								{if (porownanie[1] < max[1])
+								{max = porownanie;
+								poz_max = i;}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		pomocniczy = glowa;
+		for (string dataa = pomocniczy->data; dataa != max; dataa = pomocniczy->data)
+			pomocniczy = pomocniczy->kolejny;
 		pomocniczyy = pomocniczy->kol;
 		for (string nazwiskoo = pomocniczyy->nazwisko; nazwiskoo != nazwisk; nazwiskoo = pomocniczyy->nazwisko)
 			pomocniczyy = pomocniczyy->nast;
-		cout << pomocniczy->miejsce << " " << pomocniczy->data << " lokata: " << pomocniczyy->pozycja << endl;
-		pomocniczy = pomocniczy->kolejny;
+		cout << pomocniczy->data << " " << pomocniczy->miejsce << " lokata: " << pomocniczyy->pozycja<<endl;
+		dane1.erase(dane1.begin()+poz_max);
 	}
 }
 
@@ -301,6 +369,7 @@ void zapisz_zmiany(konkurs*&glowa, string zapis)
 			nowe << pomocniczy->miejsce << " " << pomocniczy->data << " " << pomocniczyy->nazwisko << " " << pomocniczyy->kraj << " " << pomocniczyy->pozycja << endl;
 	nowe.close();
 }
+
 void usunskoczkow(skoczek * & pHead)
 {
 	while (pHead)
@@ -311,6 +380,7 @@ void usunskoczkow(skoczek * & pHead)
 	}
 	pHead = NULL;
 }
+
 void usunkonkursy(konkurs * & pHead)
 {
 	while (pHead)
@@ -322,6 +392,7 @@ void usunkonkursy(konkurs * & pHead)
 	}
 	pHead = NULL;
 }
+
 int main(int argc, char* argv[]) {
 	if (argc != 5) {
 		cout << "Zle uruchomiony program." << endl;
@@ -330,7 +401,7 @@ int main(int argc, char* argv[]) {
 	}
 	string przelacznik = argv[2];
 	if (przelacznik == "-i" || przelacznik == "-o") {
-		cout << "nie poda³es wlasciwego prze³¹cznika." << endl;
+		cout << "nie podales wlasciwego przelacznika." << endl;
 		system("pause");
 		return 0;
 	}
@@ -341,6 +412,12 @@ int main(int argc, char* argv[]) {
 			plik = argv[i + 1];
 		if (pob_wart == "-o")
 			zapis = argv[i + 1];
+	}
+	ifstream dana(plik);
+	if (!dana.is_open()) {
+		cout << " Podany plik nie istnieje ";
+		system("pause");
+		return 0;
 	}
 	string mie;
 	char w=0;
