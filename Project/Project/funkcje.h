@@ -1,6 +1,6 @@
 #ifndef FUNKCJE_H
 #define FUNKCJE_H
-#include"struktury.h"
+#include"Struktury.h"
 
 /**Funkcja tworzy listy konkursów i dodaje do nich skoczków z pliku
 @param glowa wskaznik na g³owê listy
@@ -52,4 +52,4 @@ void usunskoczkow(skoczek * & pHead);
 */
 void usunkonkursy(konkurs * & pHead);
 
-#endif
+#endif#pragma once
