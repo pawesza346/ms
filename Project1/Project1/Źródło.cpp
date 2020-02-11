@@ -1,5 +1,6 @@
 #include"funkcje.h"
 #include<vld.h>
+#include<ios>
 
 void dodaj_konkurs(konkurs*& glowa, string nazwa)
 {
@@ -10,7 +11,7 @@ void dodaj_konkurs(konkurs*& glowa, string nazwa)
 	dane >> miejsce1 >> czas1 >> nazwisko1 >> kraj1 >> pozycja1;
 	konkurs* nowyy = new konkurs;
 	nowyy = glowa;
-	skoczek* gg = new skoczek;
+	skoczek* gg = new skoczek
 	skoczek* g = new skoczek;
 	g = gg;
 	while (!dane.eof())

@@ -1,5 +1,5 @@
 #include"funkcje.h"
-#include<vld.h>
+
 
 void dodaj_konkurs(konkurs*& glowa, string nazwa)
 {
@@ -98,7 +98,7 @@ void edytuj_konkurs(konkurs *& glowa, string miejsce_szuk)
 	pomocniczy = glowa;
 	for (string szukane_miejsce = glowa->miejsce; szukane_miejsce != miejsce_szuk; szukane_miejsce = pomocniczy->miejsce)
 		pomocniczy = pomocniczy->kolejny;
-	cout << " jezeli chcesz edytowac nazwe konkursu wcisnij : 1 " << endl << " jezeli chcesz edytowac date konkursu wcisnij : 2 " << endl;
+	cout << " jezeli chcesz edytowac nazwe konkursu wcisnij :" << "\t 1" << endl << " jezeli chcesz edytowac date konkursu wcisnij :" << "\t\t 2" << endl;
 	char wybor;
 	wybor = _getch();
 	stringstream ss1;
@@ -141,7 +141,7 @@ void edytuj_zawodnika(konkurs *& glowa) {
 	pomocniczyy = pomocniczy->kol;
 	for (string szukane_nazwisko = pomocniczyy->nazwisko; szukane_nazwisko != nazwiskoo; szukane_nazwisko = pomocniczyy->nazwisko)
 		pomocniczyy = pomocniczyy->nast;
-	cout << " jezeli chcesz edytowac nazwisko skoczka wcisnij : 1 " << endl << " jezeli chcesz edytowac kraj skoczka wcisnij : 2 " << endl << " jezeli chcesz edytowac pozycje skoczka wcisnij : 3" << endl;
+	cout << " jezeli chcesz edytowac nazwisko skoczka wcisnij : \t 1 " << endl << " jezeli chcesz edytowac kraj skoczka wcisnij : \t\t 2 " << endl << " jezeli chcesz edytowac pozycje skoczka wcisnij : \t 3" << endl;
 	char wybor;
 	wybor = _getch();
 	stringstream ss1;
@@ -265,7 +265,7 @@ void ranking(konkurs *& glowa) {
 		max = 0;
 		poz_max = 0;
 	}
-	cout << " aby zobzczyc ranking indywidualny wcisnij : 1" << endl << " aby zobzczyc ranking narodowy wcisnij : 2" << endl << " aby zobzczyc ranking indywidualny i narodowy wcisnij : 3" << endl;
+	cout << " aby zobzczyc ranking indywidualny wcisnij : \t\t\t 1" << endl << " aby zobzczyc ranking narodowy wcisnij : \t\t\t 2" << endl << " aby zobzczyc ranking indywidualny i narodowy wcisnij : \t 3" << endl;
 	char wybor;
 	wybor = _getch();
 	stringstream ss1;
@@ -275,14 +275,14 @@ void ranking(konkurs *& glowa) {
 	ss1.clear();
 	switch (wyb) {
 	case 1: {for (int i = 0; i < rank.size(); i++)
-		cout << rank2[i] << " " << tab1[i] << endl; break; }
+		cout << rank2[i] << "\t\t" << tab1[i] << endl; break; }
 	case 2: {for (int i = 0; i < rank1.size(); i++)
-		cout << rank3[i] << " " << tab3[i] << endl; break; }
+		cout << rank3[i] << "\t\t" << tab3[i] << endl; break; }
 	case 3: {for (int i = 0; i < rank.size(); i++)
-		cout << rank2[i] << " " << tab1[i] << endl;
+		cout << rank2[i] << "\t\t" << tab1[i] << endl;
 		cout << endl;
 		for (int i = 0; i < rank1.size(); i++)
-			cout << rank3[i] << " " << tab3[i] << endl; break; }
+			cout << rank3[i] << "\t\t" << tab3[i] << endl; break; }
 	default: {cout << endl << " podales zla wartosc, za chwile powrocisz do menu " << endl; break; }
 	}
 }
@@ -312,7 +312,7 @@ void wyswietl_konkurs(konkurs *&glowa, string miejsce)
 		}
 		for (temp = pomocniczy->kol; temp->pozycja != max;)
 			temp = temp->nast;
-		cout << temp->nazwisko << " " << temp->kraj << " " << temp->pozycja << endl;
+		cout << temp->nazwisko << "\t" << temp->kraj << "\t" << temp->pozycja << endl;
 		poz.erase(poz.begin() + poz_max);
 	}
 
@@ -411,7 +411,7 @@ void wyswietl_zawodnika(konkurs *&glowa, string nazwisk)
 		pomocniczyy = pomocniczy->kol;
 		for (string nazwiskoo = pomocniczyy->nazwisko; nazwiskoo != nazwisk; nazwiskoo = pomocniczyy->nazwisko)
 			pomocniczyy = pomocniczyy->nast;
-		cout << pomocniczy->data << " " << pomocniczy->miejsce << " lokata: " << pomocniczyy->pozycja << endl;
+		cout << pomocniczy->data << "\t\t" << pomocniczy->miejsce << "\t\t"<< "lokata: \t" << pomocniczyy->pozycja << endl;
 		dane1.erase(dane1.begin() + poz_max);
 	}
 }
@@ -485,7 +485,7 @@ int main(int argc, char* argv[]) {
 	dodaj_konkurs(glowa, plik);
 	while (w != 48)
 	{
-		cout << "\t" << "MENU" << endl << " Aby edytowac zawodnika wybierz : 1" << endl << " Aby wyswietlic obecny ranking pucharu wybierz : 2" << endl << " Aby wyswietlic wynik z wybranego konkursu wybierz : 3" << endl << " Aby wyswietlic wyniki danego skoczka wybierz : 4" << endl << " Aby etytowac informacje o konkursie wybeirz : 5" << endl << " Aby zakonczyc wybierz : 0" << endl;
+		cout << "\t" << "MENU" << endl << " Aby edytowac zawodnika wybierz : \t\t\t\t 1" << endl << " Aby wyswietlic obecny ranking pucharu wybierz : \t\t 2" << endl << " Aby wyswietlic wynik z wybranego konkursu wybierz : \t\t 3" << endl << " Aby wyswietlic wyniki danego skoczka wybierz : \t\t 4" << endl << " Aby etytowac informacje o konkursie wybeirz : \t\t\t 5" << endl << " Aby zakonczyc wybierz : \t\t\t\t\t 0" << endl;
 		w = _getch();
 		ss2 << w; system("cls");
 		ss2 >> wyborrr;

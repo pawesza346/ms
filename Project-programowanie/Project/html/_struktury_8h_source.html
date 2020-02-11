@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Project: Plik źródłowy Struktury.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Project
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z Podstaw Programowania Komputerow</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_struktury_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Struktury.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_struktury_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include&lt;iostream&gt;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;fstream&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include&lt;cstring&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include&lt;sstream&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include&lt;conio.h&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include&lt;algorithm&gt;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_struktury_8h.html#ae2a5ec32add0a2f8e7f0c0f69c653a4f">   10</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="_struktury_8h.html#ae2a5ec32add0a2f8e7f0c0f69c653a4f">tab_rank</a>[] = { 100,80,60,50,45,40,36,32,29,26,24,22,20,18,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1 };</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="_struktury_8h.html#a14f268683e6be912ee55b6c660042265">   11</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="_struktury_8h.html#a14f268683e6be912ee55b6c660042265">max_zaw</a> = 30;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structskoczek.html">   13</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structskoczek.html">skoczek</a> {</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structskoczek.html#adc24e4410e1927201badac352e45081d">   14</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="structskoczek.html#adc24e4410e1927201badac352e45081d">nazwisko</a>;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structskoczek.html#a033ed6af6238e5f9425a776ac4072c38">   15</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="structskoczek.html#a033ed6af6238e5f9425a776ac4072c38">kraj</a>;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structskoczek.html#a5d159e3378642e4c2a62768cb3d3f96f">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structskoczek.html#a5d159e3378642e4c2a62768cb3d3f96f">pozycja</a>;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structskoczek.html#a145fd15ca8e4ed61a2a0240f698a31e7">   17</a></span>&#160;    <a class="code" href="structskoczek.html">skoczek</a> *<a class="code" href="structskoczek.html#a145fd15ca8e4ed61a2a0240f698a31e7">nast</a>;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structkonkurs.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structkonkurs.html">konkurs</a> {</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structkonkurs.html#a87c15a5f2dcd126e0f1b8ef66cce9e70">   21</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="structkonkurs.html#a87c15a5f2dcd126e0f1b8ef66cce9e70">data</a>;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structkonkurs.html#a1ffacbde3cbc0703aa32d3c9b5f06718">   22</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="structkonkurs.html#a1ffacbde3cbc0703aa32d3c9b5f06718">miejsce</a>;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structkonkurs.html#abdab99136992e2f4861a68b5de61d69d">   23</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structskoczek.html">skoczek</a> *<a class="code" href="structkonkurs.html#abdab99136992e2f4861a68b5de61d69d">kol</a>;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structkonkurs.html#a34118c252274b5ecb00bb05941ae9f48">   24</a></span>&#160;    <a class="code" href="structkonkurs.html">konkurs</a> *<a class="code" href="structkonkurs.html#a34118c252274b5ecb00bb05941ae9f48">kolejny</a>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div><div class="ttc" id="structskoczek_html_a033ed6af6238e5f9425a776ac4072c38"><div class="ttname"><a href="structskoczek.html#a033ed6af6238e5f9425a776ac4072c38">skoczek::kraj</a></div><div class="ttdeci">string kraj</div><div class="ttdoc">napis(nazwa karju)</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00015">Struktury.h:15</a></div></div>
+<div class="ttc" id="structkonkurs_html_abdab99136992e2f4861a68b5de61d69d"><div class="ttname"><a href="structkonkurs.html#abdab99136992e2f4861a68b5de61d69d">konkurs::kol</a></div><div class="ttdeci">struct skoczek * kol</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00023">Struktury.h:23</a></div></div>
+<div class="ttc" id="structkonkurs_html_a1ffacbde3cbc0703aa32d3c9b5f06718"><div class="ttname"><a href="structkonkurs.html#a1ffacbde3cbc0703aa32d3c9b5f06718">konkurs::miejsce</a></div><div class="ttdeci">string miejsce</div><div class="ttdoc">napis (miejsce konkursu)</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00022">Struktury.h:22</a></div></div>
+<div class="ttc" id="structkonkurs_html_a87c15a5f2dcd126e0f1b8ef66cce9e70"><div class="ttname"><a href="structkonkurs.html#a87c15a5f2dcd126e0f1b8ef66cce9e70">konkurs::data</a></div><div class="ttdeci">string data</div><div class="ttdoc">napis(data konkursu)</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00021">Struktury.h:21</a></div></div>
+<div class="ttc" id="structskoczek_html"><div class="ttname"><a href="structskoczek.html">skoczek</a></div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00013">Struktury.h:13</a></div></div>
+<div class="ttc" id="_struktury_8h_html_a14f268683e6be912ee55b6c660042265"><div class="ttname"><a href="_struktury_8h.html#a14f268683e6be912ee55b6c660042265">max_zaw</a></div><div class="ttdeci">const int max_zaw</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00011">Struktury.h:11</a></div></div>
+<div class="ttc" id="structskoczek_html_adc24e4410e1927201badac352e45081d"><div class="ttname"><a href="structskoczek.html#adc24e4410e1927201badac352e45081d">skoczek::nazwisko</a></div><div class="ttdeci">string nazwisko</div><div class="ttdoc">napis(nazwisko zawodnika)</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00014">Struktury.h:14</a></div></div>
+<div class="ttc" id="structkonkurs_html"><div class="ttname"><a href="structkonkurs.html">konkurs</a></div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00020">Struktury.h:20</a></div></div>
+<div class="ttc" id="structskoczek_html_a145fd15ca8e4ed61a2a0240f698a31e7"><div class="ttname"><a href="structskoczek.html#a145fd15ca8e4ed61a2a0240f698a31e7">skoczek::nast</a></div><div class="ttdeci">skoczek * nast</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00017">Struktury.h:17</a></div></div>
+<div class="ttc" id="_struktury_8h_html_ae2a5ec32add0a2f8e7f0c0f69c653a4f"><div class="ttname"><a href="_struktury_8h.html#ae2a5ec32add0a2f8e7f0c0f69c653a4f">tab_rank</a></div><div class="ttdeci">const int tab_rank[]</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00010">Struktury.h:10</a></div></div>
+<div class="ttc" id="structkonkurs_html_a34118c252274b5ecb00bb05941ae9f48"><div class="ttname"><a href="structkonkurs.html#a34118c252274b5ecb00bb05941ae9f48">konkurs::kolejny</a></div><div class="ttdeci">konkurs * kolejny</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00024">Struktury.h:24</a></div></div>
+<div class="ttc" id="structskoczek_html_a5d159e3378642e4c2a62768cb3d3f96f"><div class="ttname"><a href="structskoczek.html#a5d159e3378642e4c2a62768cb3d3f96f">skoczek::pozycja</a></div><div class="ttdeci">int pozycja</div><div class="ttdoc">numer(pozycja zawodnika)</div><div class="ttdef"><b>Definition:</b> <a href="_struktury_8h_source.html#l00016">Struktury.h:16</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_struktury_8h.html">Struktury.h</a></li>
+    <li class="footer">Wygenerowano przez
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
+</body>
+</html>
